@@ -32,7 +32,7 @@ that, given an array A of N integers, returns the smallest positive integer (gre
 */
 
 
-class Online_01 {
+class Online01 {
     public int solution(int[] A) {
         int max = Arrays.stream(A).max().getAsInt();
         int min = Arrays.stream(A).min().getAsInt();
