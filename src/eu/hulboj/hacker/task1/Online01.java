@@ -1,4 +1,4 @@
-package eu.hulboj.hacker;
+package eu.hulboj.hacker.task1;
 
 import java.util.HashSet;
 
