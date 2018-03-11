@@ -1,6 +1,7 @@
 package eu.hulboj.hacker;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -34,33 +35,14 @@ that, given an array A of N integers, returns the smallest positive integer (gre
 
 class Online01 {
     public int solution(int[] A) {
-        int max = Arrays.stream(A).max().getAsInt();
-        int min = Arrays.stream(A).min().getAsInt();
-        if(max < 0  && min < 0) {
-            return 1;
+        int num = 1;
+        HashSet<Integer> hset = new HashSet<>();
+        for (int i = 0 ; i < A.length; i++) {
+            hset.add(A[i]);
         }
-        List<Integer> duplicates = Arrays.stream(A)
-                .boxed()
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
-                .entrySet()
-                .stream()
-                .filter(integerLongEntry -> integerLongEntry.getValue() > 1)
-                .map(integerLongEntry -> integerLongEntry.getKey())
-                .collect(Collectors.toList());
-        if(duplicates.size() == 0) {
-            return max + 1;
+        while (hset.contains(num)) {
+            num++;
         }
-
-        List<Integer> removeDuplicates = Arrays.stream(A).boxed().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
-                .entrySet()
-                .stream()
-                .map(integerLongEntry -> integerLongEntry.getKey())
-                .collect(Collectors.toList());
-        for(int i = 0; i < removeDuplicates.size(); i++) {
-            if(i+1 != removeDuplicates.get(i)) {
-                return i+1;
-            }
-        }
-        return 0;
+        return num;
     }
 }

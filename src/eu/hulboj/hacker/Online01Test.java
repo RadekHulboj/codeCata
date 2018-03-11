@@ -56,6 +56,6 @@ public class Online01Test {
         //when
         int solution1 = solution.solution(ints);
         //then
-        assertThat(solution1, is(9));
+        assertThat(solution1, is(1));
     }
 }
