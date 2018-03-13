@@ -2,10 +2,8 @@ package eu.hulboj.hacker.task2;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 /**
  * Created by radoslaw on 11.03.18.
