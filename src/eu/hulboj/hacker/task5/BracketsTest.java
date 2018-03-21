@@ -5,15 +5,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.runners.Parameterized.*;
+import static org.junit.runners.Parameterized.Parameters;
 
 /**
  * Created by radoslaw onplugin 20.03.18.
@@ -32,8 +29,9 @@ public class BracketsTest {
                 {"", 1},
                 {"(", 0},
                 {"[{}]()[]", 1},
-                {"[{}]()[]{", 0}
-//                {")(", 0}
+                {"[{}]()[]{", 0},
+                {"{{{}}}", 1},
+                {"][", 0}
         });
         return strings;
     }

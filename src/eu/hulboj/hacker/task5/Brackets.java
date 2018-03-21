@@ -20,13 +20,17 @@ public class Brackets {
     }
 
     private void updateStack(Stack<Integer> tokens, char[] a1, char c, int item) {
-        if (c == a1[0]) {
+        int open = 0;
+        if (c == a1[open]) {
             tokens.push(item);
         }
-        if (c == a1[1]) {
-            Integer stack = tokens.peek();
-            if (stack == item) {
-                tokens.pop();
+        int close = 1;
+        if (c == a1[close]) {
+            if (tokens.size() > 0) {
+                Integer stack = tokens.peek();
+                if (stack == item) {
+                    tokens.pop();
+                }
             }
         }
     }
