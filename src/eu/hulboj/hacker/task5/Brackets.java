@@ -5,8 +5,8 @@ import java.util.Stack;
 /**
  * Created by radoslaw on 20.03.18.
  */
-public class Brackets {
-    public int solution(String s) {
+class Brackets {
+    int solution(String s) {
         Stack<Integer> tokens = new Stack<>();
         char[] a1 = {'{', '}'};
         char[] a2 = {'(', ')'};
@@ -18,7 +18,6 @@ public class Brackets {
         }
         return tokens.size() > 0 ? 0 : 1;
     }
-
     private void updateStack(Stack<Integer> tokens, char[] a1, char c, int item) {
         int open = 0;
         if (c == a1[open]) {
